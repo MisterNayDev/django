@@ -253,7 +253,7 @@ class HttpResponseBase:
             (samesite and samesite.lower() == 'none')
         )
         self.set_cookie(
-            key, max_age=0, path=path, domain=domain, secure=secure,
+            key, max_age=0, path=path, domain=domain, secure=True, httponly=True,
             expires='Thu, 01 Jan 1970 00:00:00 GMT', samesite=samesite,
         )
 
