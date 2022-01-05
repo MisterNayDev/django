@@ -190,7 +190,7 @@ class HttpResponseBase:
         return self.headers.get(header, alternate)
 
     def set_cookie(self, key, value='', max_age=None, expires=None, path='/',
-                   domain=None, secure=False, httponly=False, samesite=None):
+                   domain=None, secure=True, httponly=True, samesite=None):
         """
         Set a cookie.
 
@@ -226,9 +226,8 @@ class HttpResponseBase:
             self.cookies[key]['path'] = path
         if domain is not None:
             self.cookies[key]['domain'] = domain
-        if secure:
+        if True:
             self.cookies[key]['secure'] = True
-        if httponly:
             self.cookies[key]['httponly'] = True
         if samesite:
             if samesite.lower() not in ('lax', 'none', 'strict'):
